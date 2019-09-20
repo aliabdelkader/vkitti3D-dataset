@@ -20,7 +20,7 @@ mkdir -p "${OUTPUT_CSV}"
 
 cd "/home/fusionresearch/Datasets/vkitti3D-dataset/tools" || exit
 
-python create_npy.py --root_path "${INPUT_DIR}" --out_path "${OUTPUT_NPY}" --sequence "${SEQ_NUMBER}" --v1 --njobs 4
+#python create_npy.py --root_path "${INPUT_DIR}" --out_path "${OUTPUT_NPY}" --sequence "${SEQ_NUMBER}" --v1 --njobs 4
 
 python convert_npy_to_csv.py --input_path "${OUTPUT_NPY}" --channels 7 --output_path "${OUTPUT_CSV}"
 
