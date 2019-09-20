@@ -6,7 +6,7 @@ import cv2
 import pandas
 from sklearn.neighbors import NearestNeighbors
 from tqdm import tqdm
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import argparse
 from argparse import RawTextHelpFormatter
@@ -80,7 +80,7 @@ def parallel_process(array, function, n_jobs: int = 8, use_kwargs: bool = False,
     if n_jobs == 1:
         return front + [function(**a) if use_kwargs else function(a) for a in tqdm(array[front_num:])]
     # Assemble the workers
-    with ProcessPoolExecutor(max_workers=n_jobs) as pool:
+    with ThreadPoolExecutor(max_workers=n_jobs) as pool:
         # Pass the elements of array into function
         if use_kwargs:
             futures = [pool.submit(function, **a) for a in array[front_num:]]
@@ -351,6 +351,8 @@ def main(root_path: str, out_path: str, bb_eps: float, cutoff: float, knn_eps: f
         rgb2label[(row['r'], row['g'], row['b'])] = sem2label[row['Category(:id)'].split(':')[0]]
 
     output = parallel_process(image_paths, process_frame, front_num=0, n_jobs=njobs)
+
+    print("threads are done")
 
     if g_is_v1:
         for i in range(len(output)):

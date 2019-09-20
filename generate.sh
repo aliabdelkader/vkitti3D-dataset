@@ -18,6 +18,6 @@ mkdir -p "${OUTPUT}"
 
 cd "/home/fusionresearch/Datasets/vkitti3D-dataset/tools" || exit
 
-python create_npy.py --root_path "${INPUT_DIR}" --out_path "${OUTPUT}" --sequence "${SEQ_NUMBER}" --v2 --njobs 2
+python create_npy.py --root_path "${INPUT_DIR}" --out_path "${OUTPUT}" --sequence "${SEQ_NUMBER}" --v1 --njobs 2
 
 cd "${CURRENT_DIR}"
