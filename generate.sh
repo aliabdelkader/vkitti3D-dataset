@@ -1,3 +1,4 @@
 export INPUT_DIR="data"
 export OUTPUT_DIR="data"
-python create_npy.py --root_path "${INPUT_DIR}"--out_path "OUTPUT_DIR" --sequence 0001 --v2
+export SEQ_NUMBER="0001"
+python create_npy.py --root_path "${INPUT_DIR}"--out_path "${OUTPUT_DIR}" --sequence "${SEQ_NUMBER}" --v2
