@@ -354,6 +354,12 @@ def main(root_path: str, out_path: str, bb_eps: float, cutoff: float, knn_eps: f
 
     print("threads are done")
 
+    out_folder_str = f"{out_path}/{output[i][2]}"
+    output_folder = Path(out_folder_str)
+    output_folder.mkdir(parents=True, exist_ok=True)
+
+    print("processing {file}".format(file=str(out_folder_str)))
+
     if g_is_v1:
         for i in range(len(output)):
             out_folder_str = f"{out_path}/{output[i][2]}"
