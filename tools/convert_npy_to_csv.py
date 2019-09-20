@@ -29,7 +29,7 @@ if __name__ == '__main__':
     parser.add_argument('--output_path', type=str, required=True,
                         help='path for output files')
 
-    parser.add_argument('--njobs', const=4, default=4, type=int,
+    parser.add_argument('--njobs', default=4, type=int,
                         help='number of cores used for processing')
 
     args = parser.parse_args()
