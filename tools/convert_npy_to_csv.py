@@ -23,7 +23,7 @@ if __name__ == '__main__':
     output_path = Path(args.output_path)
     channels = int(args.channels)
 
-    files_list = input_path.glob("'**/*.npy")
+    files_list = input_path.glob("**/*.npy")
 
     for infile in tqdm(files_list):
         print(infile.stem)
