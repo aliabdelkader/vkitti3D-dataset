@@ -7,7 +7,7 @@ import argparse
 
 def covert_to_csv(infile):
 
-    print(infile.stem)
+    print(str(infile))
     point_cloud = np.load(str(infile)).reshape(-1, channels)
     file_name = infile.stem
     outfile = output_path / (file_name + '.csv')
